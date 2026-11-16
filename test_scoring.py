@@ -1,4 +1,4 @@
-from scoring import cvss_points, severity_bonus, kev_bonus, days_bonus
+from scoring import cvss_points, severity_bonus, kev_bonus, days_bonus, v2_penalty
 from datetime import datetime
 def test_cvss_points():
     assert cvss_points(9.8) == 98.0
@@ -27,3 +27,9 @@ def test_days_bonus():
     assert days_bonus("2016-07-18T00:00:00.000", now) == 0
     assert days_bonus(None, now) == 0
     assert days_bonus("2016-07-17T00:00:00.000", now) == -15
+
+def test_v2_penalty():
+    assert v2_penalty("2.0") == -5
+    assert v2_penalty("3.1") == 0
+    assert v2_penalty("4.0") == 0
+    assert v2_penalty(None) == 0

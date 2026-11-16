@@ -39,3 +39,14 @@ def days_bonus(published, now=None):
         return 0
     else:
         return -15
+
+def v2_penalty(cvss_version):
+     if cvss_version == "2.0":
+         return -5
+     elif cvss_version == "3.1":
+         return 0
+     elif cvss_version == "4.0":
+         return 0
+     else:
+         return 0
+
