@@ -14,10 +14,9 @@ def severity_bonus(severity):
         return 0
     else:
         return 0
-    
 
-print(severity_bonus("CRITICAL"))
-print(severity_bonus("HIGH"))
-print(severity_bonus("MEDIUM"))
-print(severity_bonus("LOW"))
-print(severity_bonus(None))
+def kev_bonus(is_kev):
+    if is_kev:
+        return 30
+    else:
+        return 0
